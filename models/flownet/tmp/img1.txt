@@ -1,1 +1,1 @@
-temple_2/frame_0007.png
+data/0000000-img0.ppm
