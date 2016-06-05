@@ -98,7 +98,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -134,7 +134,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -170,7 +170,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -206,7 +206,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -242,7 +242,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -278,7 +278,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -314,7 +314,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -350,7 +350,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+   
   }
 }
 layer {
@@ -386,7 +386,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -422,7 +422,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -458,7 +458,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -503,7 +503,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+   
   }
 }
 layer {
@@ -539,7 +539,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -574,7 +574,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -619,7 +619,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -655,7 +655,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+   
   }
 }
 layer {
@@ -690,7 +690,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -735,7 +735,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -771,7 +771,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -806,7 +806,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+   
   }
 }
 layer {
@@ -851,7 +851,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -887,7 +887,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {
@@ -922,7 +922,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    engine: CUDNN
+    
   }
 }
 layer {

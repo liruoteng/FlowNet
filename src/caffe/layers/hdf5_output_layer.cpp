@@ -1,7 +1,7 @@
 #include <vector>
 
-#include "hdf5/serial/hdf5.h"
-#include "hdf5/serial/hdf5_hl.h"
+#include "hdf5.h"
+#include "hdf5_hl.h"
 
 #include "caffe/data_layers.hpp"
 #include "caffe/util/hdf5.hpp"

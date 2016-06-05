@@ -4,8 +4,8 @@ import subprocess
 from math import ceil
 
 class FlowNet:
-    caffe_bin = './bin/caffe'
-    img_size_bin = './bin/get_image_size'
+    caffe_bin = '../../.build_release/tools/caffe'
+    img_size_bin = '../../.build_release/tools/get_image_size'
     template = 'deploy.tpl.prototxt'
       
     @staticmethod
@@ -83,6 +83,8 @@ class FlowNet:
     @staticmethod
     def run(basepath, img_files, model_folder):
         os.chdir(basepath)
+	print "basepath: ", basepath
+	print "bin: ", FlowNet.caffe_bin, FlowNet.img_size_bin
 
         if not (os.path.isfile(FlowNet.caffe_bin) and os.path.isfile(FlowNet.img_size_bin)):
             print('Caffe tool binaries not found. Did you compile caffe with tools (make all tools)?')
