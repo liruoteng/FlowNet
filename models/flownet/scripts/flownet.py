@@ -83,8 +83,8 @@ class FlowNet:
     @staticmethod
     def run(basepath, img_files, model_folder):
         os.chdir(basepath)
-	print "basepath: ", basepath
-	print "bin: ", FlowNet.caffe_bin, FlowNet.img_size_bin
+        print "basepath: ", basepath
+        print "bin: ", FlowNet.caffe_bin, FlowNet.img_size_bin
 
         if not (os.path.isfile(FlowNet.caffe_bin) and os.path.isfile(FlowNet.img_size_bin)):
             print('Caffe tool binaries not found. Did you compile caffe with tools (make all tools)?')
