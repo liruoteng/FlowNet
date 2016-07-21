@@ -95,3 +95,6 @@ CURRENT
 MANIFEST-*
 
 deps/
+
+# visual files
+models/flownet/out
