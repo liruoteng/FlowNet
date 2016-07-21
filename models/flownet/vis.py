@@ -86,17 +86,18 @@ class Visualizer():
 			plt.show()
 		elif mode == 'save':
 			plt.figure(figsize=(16,12))
+			plt.imshow(panel)
 			plt.savefig(os.path.join('out', blobname + '.jpg'), bbox_inches='tight')
 			plt.close('all')
 		else:
 			raise Exception('No such mode %s' % mode)
 
 
-	def visualize_all(self, out='out'):
+	def visualize_all(self, out='out', axis=2):
 		if not os.path.exists(out):
 			os.makedirs(out)
 		for blobname in self.net.blobs:
-			self.visualize(blobname, mode='save', out=out)
+			self.visualize(blobname, mode='save', out=out, axis=axis)
 
 			
 	def data_processing(f1,f2):
