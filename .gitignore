@@ -98,3 +98,5 @@ deps/
 
 # visual files
 models/flownet/out
+models/flownet/vis_param
+models/flownet/vis_blobs
