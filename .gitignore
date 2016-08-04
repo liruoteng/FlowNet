@@ -101,3 +101,5 @@ models/flownet/out
 models/flownet/vis_param
 models/flownet/vis_blobs
 models/flownet/flownets-pred-0000000.flo
+models/flownet/models/*
+models/flownet/tmp/*
