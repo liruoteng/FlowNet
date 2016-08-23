@@ -104,5 +104,5 @@ models/flownet/Selected
 models/flownet/noc
 models/flownet/occ
 models/flownet/tmp/*
-models/flownet/flownets-pred-0000000.floi
+models/flownet/flownets-pred-0000000.flo
 models/flownet/models/*
