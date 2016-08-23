@@ -100,6 +100,10 @@ deps/
 models/flownet/out
 models/flownet/vis_param
 models/flownet/vis_blobs
+models/flownet/Selected
+models/flownet/noc
+models/flownet/occ
+models/flownet/tmp/*
 models/flownet/flownets-pred-0000000.flo
 models/flownet/models/*
-models/flownet/tmp/*
+models/flownet/result.txt
