@@ -48,8 +48,8 @@ layer {
   bottom: "img0_aug"
   top: "img0_nomean_resize"
   resample_param {
-    width: 512
-    height: 384
+    width: 640
+    height: 512
     type: LINEAR
     antialias: true
   }
@@ -60,8 +60,8 @@ layer {
   bottom: "img1_aug"
   top: "img1_nomean_resize"
   resample_param {
-    width: 512
-    height: 384
+    width: 640
+    height: 512
     type: LINEAR
     antialias: true
   }
@@ -875,8 +875,8 @@ layer {
   bottom: "blob44"
   top: "predict_flow_resize"
   resample_param {
-    width: 512
-    height: 384
+    width: 640
+    height: 480
     type: LINEAR
     antialias: true
   }
@@ -894,7 +894,7 @@ layer {
     weight_filler {
       type: "diagonal"
       diag_val: 1.00000000
-      diag_val: 1.00000000
+      diag_val: 0.93750000
     }
     bias_filler {
       type: "constant"

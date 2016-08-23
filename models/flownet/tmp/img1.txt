@@ -1,1 +1,1 @@
-data/0000012-img0.ppm
+data/other-data/Urban2/frame10_rain.png

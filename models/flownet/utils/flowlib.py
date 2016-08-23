@@ -1,40 +1,33 @@
 #!/usr/bin/python
 import numpy as np
 import matplotlib.pyplot as plt
+UNKNOWN_FLOW_THRESH = 1e7
 
 
 # Calculate flow end point error
-def flow_error(f1, f2):
+def evaluate_flow_file(gt, pred):
     # Read flow files and calculate the errors
-    gt_flow = readflow(f1)      # ground truth flow
-    eva_flow = readflow(f2)     # test flow
-
+    gt_flow = read_flow(gt)        # ground truth flow
+    eva_flow = read_flow(pred)     # predicted flow
     # Calculate errors
     average_pe = flowAngErr(gt_flow[:, :, 0], gt_flow[:, :, 1], eva_flow[:, :, 0], eva_flow[:, :, 1])
-    print "average end point error is:", average_pe
+    return average_pe
 
-    # Visualize flow
-    gt_img = visualize_flow(gt_flow)
-    eva_img = visualize_flow(eva_flow)
 
-    plt.figure(1)
-    plt.imshow(gt_img)
-    plt.figure(2)
-    plt.imshow(eva_img)
-    plt.show()
-
+def evaluate_flow(gt, pred):
+    """
+    gt: ground-truth flow
+    pred: estimated flow
+    """
+    average_pe = flowAngErr(gt_flow[:, :, 0], gt_flow[:, :, 1], eva_flow[:, :, 0], eva_flow[:, :, 1])
+    return average_pe
 
 # show flow file visualization
 def show_flow(filename):
     flow = read_flow(filename)
-    img = visualize_flow(flow)
+    img = flow_to_image(flow)
     plt.imshow(img)
     plt.show()
-
-
-# Find indices of a matrix
-def indices(a, func):
-    return [i for (i, val) in enumerate(a) if func(val)]
 
 
 # WARNING: this will work on little-endian architectures (eg Intel x86) only!
@@ -70,6 +63,12 @@ def flowAngErr(tu, tv, u, v):
     su = u[:]
     sv = v[:]
 
+    idxUnknow = (abs(stu) > UNKNOWN_FLOW_THRESH) | (abs(stv) > UNKNOWN_FLOW_THRESH)
+    stu[idxUnknow] = 0
+    stv[idxUnknow] = 0
+    su[idxUnknow] = 0
+    sv[idxUnknow] = 0
+
     ind2 = [(np.absolute(stu) > smallflow) | (np.absolute(stv) > smallflow)]
     index_su = su[ind2]
     index_sv = sv[ind2]
@@ -98,25 +97,13 @@ def flowAngErr(tu, tv, u, v):
     return mepe
 
 
-def image_adjust(img, sz):
-    """
-    Adjust image to size
-    :param img: array of image to be resized
-    :param sz: tuple value (H,W) height x width
-    :return: adjusted image
-    """
-    from scipy import misc as mc
-    return mc.imresize(img, size=sz)
-
-
-def visualize_flow(flow):
+# Convert flow into middlebury color code image
+def flow_to_image(flow):
     """
 
     :param flow:
     :return:
     """
-    UNKNOWN_FLOW_THRESH = 1e9
-
     u = flow[:, :, 0]
     v = flow[:, :, 1]
 
@@ -137,7 +124,7 @@ def visualize_flow(flow):
     maxv = max(maxv, np.max(v))
     minv = min(minv, np.min(v))
 
-    print "max flow: %.4f flow range: u = %.3f .. %.3f; v = %.3f .. %.3f\n" % (maxrad, minu,maxu, minv, maxv)
+    print "max flow: %.4f flow range: u = %.3f .. %.3f; v = %.3f .. %.3f" % (maxrad, minu,maxu, minv, maxv)
     rad = np.sqrt(u ** 2 + v ** 2)
     maxrad = max(maxrad, np.max(rad))
 
@@ -235,9 +222,13 @@ def make_color_wheel():
 
     return colorwheel
 
-def visualize(filename):
-    flow = read_flow(filename)
-    pic = visualize_flow(flow)
-    plt.imshow(pic)
-    plt.show()
 
+def image_adjust(img, sz):
+    """
+    Adjust image to size
+    :param img: array of image to be resized
+    :param sz: tuple value (H,W) height x width
+    :return: adjusted image
+    """
+    from scipy import misc as mc
+    return mc.imresize(img, size=sz)
