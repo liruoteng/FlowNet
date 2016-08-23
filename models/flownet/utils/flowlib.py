@@ -14,7 +14,7 @@ def evaluate_flow_file(gt, pred):
     return average_pe
 
 
-def evaluate_flow(gt, pred):
+def evaluate_flow(gt_flow, pred_flow):
     """
     gt: ground-truth flow
     pred: estimated flow
