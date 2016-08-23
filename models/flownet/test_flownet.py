@@ -14,8 +14,13 @@ def test_middlebury():
     # setting up
     middlebury_image = 'data/other-data'
     middlebury_flow = 'data/other-gt-flow'
+<<<<<<< HEAD
     img1_name = 'frame10_rain.png'
     img2_name = 'frame11_rain.png'
+=======
+    img1_name = 'frame10.png'
+    img2_name = 'frame11.png'
+>>>>>>> bd0fbd9de09287ad76ee34d9cee71eea09e98871
     flow_name = 'flow10.flo'
     prediction_file = 'flownets-pred-0000000.flo'
     result_file = 'result.txt'
@@ -40,7 +45,11 @@ def test_middlebury():
         FlowNet.run(this_dir, img_files, './model_simple')
 
         # evaluate result
+<<<<<<< HEAD
         epe = fl.evaluate_flow_file(ground_truth_file, prediction_file)
+=======
+        epe = fl.evaluate_flow(ground_truth_file, prediction_file)
+>>>>>>> bd0fbd9de09287ad76ee34d9cee71eea09e98871
         sum_error += epe
         print folder, " average end point error is:", epe
 
@@ -52,6 +61,7 @@ def test_middlebury():
     print 'sum of average end point error: ', sum_error
     result.close()
 
+<<<<<<< HEAD
 
 def test_kitti():
 	
@@ -103,3 +113,8 @@ def test_kitti():
 if __name__ == '__main__':
 	test_middlebury()
 	#test_kitti()
+=======
+    
+if __name__ == '__main__':
+    test_middlebury()
+>>>>>>> bd0fbd9de09287ad76ee34d9cee71eea09e98871

@@ -5,14 +5,21 @@ UNKNOWN_FLOW_THRESH = 1e7
 
 
 # Calculate flow end point error
+<<<<<<< HEAD
 def evaluate_flow_file(gt, pred):
+=======
+def evaluate_flow(gt, pred):
+>>>>>>> bd0fbd9de09287ad76ee34d9cee71eea09e98871
     # Read flow files and calculate the errors
     gt_flow = read_flow(gt)        # ground truth flow
     eva_flow = read_flow(pred)     # predicted flow
     # Calculate errors
     average_pe = flowAngErr(gt_flow[:, :, 0], gt_flow[:, :, 1], eva_flow[:, :, 0], eva_flow[:, :, 1])
     return average_pe
+<<<<<<< HEAD
 
+=======
+>>>>>>> bd0fbd9de09287ad76ee34d9cee71eea09e98871
 
 def evaluate_flow(gt, pred):
     """
