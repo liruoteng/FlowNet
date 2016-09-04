@@ -101,5 +101,5 @@ def test_kitti():
 
 
 if __name__ == '__main__':
-#	test_middlebury()
-	test_kitti()
+	test_middlebury()
+#	test_kitti()

@@ -1,0 +1,41 @@
+RubberWhale:
+data/other-data/RubberWhale/frame10_rain.png
+data/other-data/RubberWhale/frame11_rain.png
+data/other-gt-flow/RubberWhale/flow10.flo
+Average end point error: 1.05847
+Venus:
+data/other-data/Venus/frame10_rain.png
+data/other-data/Venus/frame11_rain.png
+data/other-gt-flow/Venus/flow10.flo
+Average end point error: 1.32787
+Dimetrodon:
+data/other-data/Dimetrodon/frame10_rain.png
+data/other-data/Dimetrodon/frame11_rain.png
+data/other-gt-flow/Dimetrodon/flow10.flo
+Average end point error: 0.82879
+Grove2:
+data/other-data/Grove2/frame10_rain.png
+data/other-data/Grove2/frame11_rain.png
+data/other-gt-flow/Grove2/flow10.flo
+Average end point error: 0.883406
+Grove3:
+data/other-data/Grove3/frame10_rain.png
+data/other-data/Grove3/frame11_rain.png
+data/other-gt-flow/Grove3/flow10.flo
+Average end point error: 1.48185
+Urban3:
+data/other-data/Urban3/frame10_rain.png
+data/other-data/Urban3/frame11_rain.png
+data/other-gt-flow/Urban3/flow10.flo
+Average end point error: 1.8479
+Hydrangea:
+data/other-data/Hydrangea/frame10_rain.png
+data/other-data/Hydrangea/frame11_rain.png
+data/other-gt-flow/Hydrangea/flow10.flo
+Average end point error: 1.07647
+Urban2:
+data/other-data/Urban2/frame10_rain.png
+data/other-data/Urban2/frame11_rain.png
+data/other-gt-flow/Urban2/flow10.flo
+Average end point error: 2.00083
+Total average point error: 10.5055844188
