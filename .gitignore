@@ -96,14 +96,15 @@ MANIFEST-*
 
 deps/
 
-# visual files
-models/flownet/out
-models/flownet/vis_param
-models/flownet/vis_blobs
-models/flownet/Selected
-models/flownet/noc
-models/flownet/occ
-models/flownet/tmp/*
-models/flownet/flownets-pred-0000000.flo
-models/flownet/models/*
-models/flownet/result.txt
+# flownet files
+models/*/out
+models/*/vis_param
+models/*/vis_blobs
+models/*/Selected
+models/*/noc
+models/*/occ
+models/*/tmp/*
+models/*/flownets-pred-0000000.flo
+models/*/models/*
+models/*/result.txt
+models/*/data/

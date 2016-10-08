@@ -3,6 +3,7 @@
 import os, sys
 from scripts.flownet import FlowNet
 from utils import flowlib as fl
+from PIL import Image
 
 this_dir = os.path.dirname(os.path.realpath(__file__))
 
@@ -100,6 +101,43 @@ def test_kitti():
 	result.close()
 
 
+def test_rain():
+	rain_image_path = 'haze_rain'
+	prediction_file = 'flownets-pred-0000000.flo'
+	left_name_base = 'haze_rain_light/render_haze_left_beta'
+	right_name_base = 'haze_rain_light/render_haze_right_beta'
+	flow_file = 'haze_rain_light/flow_left.flo'
+	result = open('result.txt', 'wb')
+	sum_error = 0
+	for beta in range(0, 200, 5):
+		for contrast in range(120, 201, 5):
+			img_files = []
+			left_name =  left_name_base + str(beta) + 'contrast' + str(contrast) + '.png'
+			right_name = right_name_base + str(beta) + 'contrast' + str(contrast) + '.png'
+			img_files.append(right_name)
+			img_files.append(left_name)
+
+			# sanity check
+			if os.path.exists(prediction_file):
+				os.remove(prediction_file)
+
+			FlowNet.run(this_dir, img_files, './model_simple')
+			epe = fl.evaluate_flow_file(flow_file, prediction_file)
+			flow = fl.read_flow(prediction_file)
+			flowpic = fl.flow_to_image(flow)
+			flow_image = Image.fromarray(flowpic)
+			flow_image.save('beta' + str(beta)+ 'contrast' + str(contrast) + 'flow.png')
+			
+			sum_error += epe
+
+			result.write('beta: ' + str(beta) + ' contrast: ' + str(contrast) + ' epe: ' + str(epe) + '\n')
+
+
+	print 'sum of average end point error: ', sum_error
+	result.close()
+
+
 if __name__ == '__main__':
 #	test_middlebury()
-	test_kitti()
+	#test_kitti()
+	test_rain()
