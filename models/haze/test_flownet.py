@@ -2,7 +2,7 @@
 
 import os, sys
 from scripts.flownet import FlowNet
-from utils import flowlib as fl
+from scripts import flowlib as fl
 from PIL import Image
 
 this_dir = os.path.dirname(os.path.realpath(__file__))
