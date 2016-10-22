@@ -164,7 +164,7 @@ class FlowNet:
         args = [FlowNet.caffe_bin, 'test', '-model', 'tmp/deploy.prototxt',
                 '-weights', model_folder + '/flownet_official.caffemodel',
                 '-iterations', str(list_length),
-                '-gpu', '1']
+                '-gpu', '2']
 
         cmd = str.join(' ', args)
         print('Executing %s' % cmd)

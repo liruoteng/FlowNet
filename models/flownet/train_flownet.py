@@ -6,7 +6,7 @@ from scripts.flownet import FlowNet
 my_dir = os.path.dirname(os.path.realpath(__file__))
 os.chdir(my_dir + '/..')
 
-if len(sys.argv)-1 != 1:
+if len(sys.argv) <= 1:
     print("Use this tool to train FlowNet using the train.prototxt\n"
           "Usage for FlowNetS or FlowNetC:\n"
           "    ./train_flownet.py {S|C}\n")
