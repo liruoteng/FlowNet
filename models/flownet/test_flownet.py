@@ -134,14 +134,14 @@ def test_rain():
 def test_flownet():
 	sum_error = 0
 	sum_px_error = 0
-	length = len(img1_list)
 	result = open('result.txt', 'wb')
 	prediction_file = 'flownets-pred-0000000.flo'
 	img1_list = open('img1_list_test.txt', 'r').readlines()
 	img2_list = open('img2_list_test.txt', 'r').readlines()
 	flow_list = open('flow_list_test.txt', 'r').readlines()
-
-	for i in range(800):
+	length = len(img1_list)
+	
+	for i in range(600):
 		img_files = []
 		img_files.append(img1_list[i].strip())
 		img_files.append(img2_list[i].strip())
@@ -160,8 +160,8 @@ def test_flownet():
 	print 'Average Image EPE error: ', sum_error/length
 	print 'Average Pixel EPE error: ', sum_px_error/length
 	result.write('\n')
-	result.write('Average Image EPE error: ' + sum_error / length)
-	result.write('Average Pixel EPE error: ' + sum_px_error / length)
+	result.write('Average Image EPE error: ' + str(sum_error / length))
+	result.write('Average Pixel EPE error: ' + str(sum_px_error / length))
 	result.close()
 
 

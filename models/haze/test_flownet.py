@@ -1,15 +1,12 @@
 #! /usr/bin/python
 
 import os, sys
-from scripts.flownet import FlowNet
-from scripts import flowlib as fl
 from PIL import Image
+from scripts import flowlib as fl
+from scripts.flownet import FlowNet
+
 
 this_dir = os.path.dirname(os.path.realpath(__file__))
-
-def test_flownet():
-    pass
-
 
 def test_middlebury():
     # setting up
@@ -52,7 +49,6 @@ def test_middlebury():
     result.write('Total average point error: ' + str(sum_error) + '\n')
     print 'sum of average end point error: ', sum_error
     result.close()
-
 
 def test_kitti():
 	
@@ -100,7 +96,6 @@ def test_kitti():
 	print 'sum of average end point error: ', sum_error
 	result.close()
 
-
 def test_rain():
 	rain_image_path = 'haze_rain'
 	prediction_file = 'flownets-pred-0000000.flo'
@@ -136,8 +131,39 @@ def test_rain():
 	print 'sum of average end point error: ', sum_error
 	result.close()
 
+def test_flownet():
+	sum_error = 0
+	sum_px_error = 0
+	length = len(img1_list)
+	result = open('result.txt', 'wb')
+	prediction_file = 'flownets-pred-0000000.flo'
+	img1_list = open('img1_list_test.txt', 'r').readlines()
+	img2_list = open('img2_list_test.txt', 'r').readlines()
+	flow_list = open('flow_list_test.txt', 'r').readlines()
+
+	for i in range(800):
+		img_files = []
+		img_files.append(img1_list[i].strip())
+		img_files.append(img2_list[i].strip())
+		# sanity check
+		if os.path.exists(prediction_file):
+			os.remove(prediction_file)
+		FlowNet.run(this_dir, img_files, './model_simple')
+		epe = fl.evaluate_flow_file(flow_list[i].strip(), prediction_file)
+		flow = fl.read_flow(prediction_file)
+		[height, width, channels] = flow.shape
+		sum_error += epe
+		sum_px_error += epe / (height * width)
+		result.write(str.format("%4d" % i) + ': ' + str(epe) + '\n')
+
+
+	print 'Average Image EPE error: ', sum_error/length
+	print 'Average Pixel EPE error: ', sum_px_error/length
+	result.write('\n')
+	result.write('Average Image EPE error: ' + sum_error / length)
+	result.write('Average Pixel EPE error: ' + sum_px_error / length)
+	result.close()
+
 
 if __name__ == '__main__':
-#	test_middlebury()
-	#test_kitti()
-	test_rain()
+	test_flownet()

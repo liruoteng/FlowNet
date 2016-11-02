@@ -2,68 +2,81 @@ layer {
   name: "Image1"
   type: "ImageData"
   top: "img0"
+  include {
+    phase: TRAIN
+  }
   image_data_param {
     source: "img1_list.txt"
     root_folder: "./"
-    batch_size: 4
+    batch_size: 8
   }
 }
 layer {
   name: "Image2"
   type: "ImageData"
   top: "img1"
+  include {
+    phase: TRAIN
+  }
   image_data_param {
     source: "img2_list.txt"
     root_folder: "./"
-    batch_size: 4
+    batch_size: 8
   }
 }
 layer {
   name: "Flow"
   type: "FloData"
   top: "flow_gt_aug"
+  include {
+    phase: TRAIN
+  }
   image_data_param {
     source: "flo_list.txt"
     root_folder: "./"
-    batch_size: 4
+    batch_size: 8
   }
 }
 layer {
-  name: "Resample1"
-  type: "Resample"
-  bottom: "img0"
+  name: "Image1"
+  type: "ImageData"
   top: "img0"
-  resample_param {
-    width: 512
-    height: 384
-    type: LINEAR
-    antialias: true
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    source: "img1_list_test.txt"
+    root_folder: "./"
+    batch_size: 8
   }
 }
 layer {
-  name: "Resample2"
-  type: "Resample"
-  bottom: "img1"
+  name: "Image2"
+  type: "ImageData"
   top: "img1"
-  resample_param {
-    width: 512
-    height: 384
-    type: LINEAR
-    antialias: true
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    source: "img2_list_test.txt"
+    root_folder: "./"
+    batch_size: 8
   }
 }
 layer {
-  name: "Resample3"
-  type: "Resample"
-  bottom: "flow_gt_aug"
+  name: "Flow"
+  type: "FloData"
   top: "flow_gt_aug"
-  resample_param {
-    width: 512
-    height: 384
-    type: LINEAR
-    antialias: true
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    source: "flo_list_test.txt"
+    root_folder: "./"
+    batch_size: 8
   }
 }
+
 layer {
   name: "Mean1"
   type: "Mean"

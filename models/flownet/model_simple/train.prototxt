@@ -2,32 +2,81 @@ layer {
   name: "Image1"
   type: "ImageData"
   top: "img0"
+  include {
+    phase: TRAIN
+  }
   image_data_param {
     source: "img1_list.txt"
     root_folder: "./"
-    batch_size: 4
+    batch_size: 8
   }
 }
 layer {
   name: "Image2"
   type: "ImageData"
   top: "img1"
+  include {
+    phase: TRAIN
+  }
   image_data_param {
     source: "img2_list.txt"
     root_folder: "./"
-    batch_size: 4
+    batch_size: 8
   }
 }
 layer {
   name: "Flow"
   type: "FloData"
   top: "flow_gt_aug"
+  include {
+    phase: TRAIN
+  }
   image_data_param {
     source: "flo_list.txt"
     root_folder: "./"
-    batch_size: 4
+    batch_size: 8
   }
 }
+layer {
+  name: "Image1"
+  type: "ImageData"
+  top: "img0"
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    source: "img1_list_test.txt"
+    root_folder: "./"
+    batch_size: 8
+  }
+}
+layer {
+  name: "Image2"
+  type: "ImageData"
+  top: "img1"
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    source: "img2_list_test.txt"
+    root_folder: "./"
+    batch_size: 8
+  }
+}
+layer {
+  name: "Flow"
+  type: "FloData"
+  top: "flow_gt_aug"
+  include {
+    phase: TEST
+  }
+  image_data_param {
+    source: "flo_list_test.txt"
+    root_folder: "./"
+    batch_size: 8
+  }
+}
+
 layer {
   name: "Mean1"
   type: "Mean"
@@ -98,7 +147,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -134,7 +183,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -170,7 +219,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -206,7 +255,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -242,7 +291,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -278,7 +327,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -314,7 +363,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -350,7 +399,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-   
+    engine: CUDNN
   }
 }
 layer {
@@ -386,7 +435,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -422,7 +471,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -458,7 +507,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -503,7 +552,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-   
+    engine: CUDNN
   }
 }
 layer {
@@ -539,7 +588,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -574,7 +623,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -619,7 +668,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -655,7 +704,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-   
+    engine: CUDNN
   }
 }
 layer {
@@ -690,7 +739,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -735,7 +784,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -771,7 +820,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -806,7 +855,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-   
+    engine: CUDNN
   }
 }
 layer {
@@ -851,7 +900,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -887,7 +936,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {
@@ -922,7 +971,7 @@ layer {
     bias_filler {
       type: "constant"
     }
-    
+    engine: CUDNN
   }
 }
 layer {

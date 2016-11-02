@@ -67,7 +67,8 @@ class FlowNet:
     @staticmethod
     def train(basepath, model_folder, other_args):
         os.chdir(basepath)
-
+        f = open('logfile', 'w')
+        
         if not (os.path.isfile(FlowNet.caffe_bin) and os.path.isfile(FlowNet.img_size_bin)):
             print('Caffe tool binaries not found. Did you compile caffe with tools (make all tools)?')
             sys.exit(1)
@@ -78,7 +79,8 @@ class FlowNet:
         cmd = str.join(' ', args)
         print('Executing %s' % cmd)
 
-        subprocess.call(args)
+        subprocess.call(args, stderr=f)
+        f.close()
 
     @staticmethod
     def run(basepath, img_files, model_folder):

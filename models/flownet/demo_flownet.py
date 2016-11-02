@@ -6,7 +6,7 @@ from scripts.flownet import FlowNet
 my_dir = os.path.dirname(os.path.realpath(__file__))
 os.chdir(my_dir + '/..')
 
-if len(sys.argv) -1 != 3:
+if len(sys.argv)-1 != 3:
     print("Use this tool to test FlowNet on images\n"
           "Usage for single image pair:\n"
           "    ./demo_flownet.py {S|C} IMAGE1 IMAGE2\n"

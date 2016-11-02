@@ -15,7 +15,7 @@ momentum: 0.9
 weight_decay: 0.0004
 max_iter: 1200000
 snapshot: 5000
-snapshot_prefix: "flow"
+snapshot_prefix: "snapshot/flow"
 
 solver_mode: GPU  # Some of our layers only support GPU
 type: "Adam"
