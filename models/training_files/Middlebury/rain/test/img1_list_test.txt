@@ -1,0 +1,8 @@
+../../../../../data/Middlebury/other-data/RubberWhale/frame10_rain.png
+../../../../../data/Middlebury/other-data/Venus/frame10_rain.png
+../../../../../data/Middlebury/other-data/Dimetrodon/frame10_rain.png
+../../../../../data/Middlebury/other-data/Grove2/frame10_rain.png
+../../../../../data/Middlebury/other-data/Grove3/frame10_rain.png
+../../../../../data/Middlebury/other-data/Urban3/frame10_rain.png
+../../../../../data/Middlebury/other-data/Hydrangea/frame10_rain.png
+../../../../../data/Middlebury/other-data/Urban2/frame10_rain.png

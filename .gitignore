@@ -93,7 +93,6 @@ LOCK
 LOG*
 CURRENT
 MANIFEST-*
-
 deps/
 
 # flownet files
@@ -108,3 +107,7 @@ models/*/flownets-pred-0000000.flo
 models/*/models/*
 models/*/result.txt
 models/*/data/
+models/z_other_models/
+models/zz_Models/
+#others
+*.gz

@@ -1,0 +1,8 @@
+../../../../../data/Middlebury/other-gt-flow/RubberWhale/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Venus/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Dimetrodon/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Grove2/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Grove3/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Urban3/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Hydrangea/flow10.flo
+../../../../../data/Middlebury/other-gt-flow/Urban2/flow10.flo

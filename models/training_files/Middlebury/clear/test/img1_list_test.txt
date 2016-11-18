@@ -1,0 +1,8 @@
+../../../../../data/Middlebury/other-data/RubberWhale/frame10.png
+../../../../../data/Middlebury/other-data/Venus/frame10.png
+../../../../../data/Middlebury/other-data/Dimetrodon/frame10.png
+../../../../../data/Middlebury/other-data/Grove2/frame10.png
+../../../../../data/Middlebury/other-data/Grove3/frame10.png
+../../../../../data/Middlebury/other-data/Urban3/frame10.png
+../../../../../data/Middlebury/other-data/Hydrangea/frame10.png
+../../../../../data/Middlebury/other-data/Urban2/frame10.png
