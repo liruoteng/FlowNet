@@ -2,6 +2,7 @@
 
 import os, sys
 from PIL import Image
+from scripts import kittitool
 from scripts import flowlib as fl
 from scripts.flownet import FlowNet
 
@@ -50,27 +51,27 @@ def test_middlebury():
     print 'sum of average end point error: ', sum_error
     result.close()
 
+
+def test_sintel():
+	pass
+
+
 def test_kitti():
 	
-	kitti_image = '../../../../../../../media/data/LRT_Flow/KITTI/data_scene_flow/training/image_2'
-	kitti_flow = 'noc'
-	image_list = os.listdir(kitti_image)
-	flow_list = os.listdir(kitti_flow)
-
-	prediction_file = 'flownets-pred-0000000.flo'
-	result = open('result.txt', 'wb')
 	sum_error = 0
+	sum_px_error = 0
+	result = open('result.txt', 'wb')
+	prediction_file = 'flownets-pred-0000000.flo'
+	img1_list = open('img1_list_test.txt', 'r').readlines()
+	img2_list = open('img2_list_test.txt', 'r').readlines()
+	flow_list = open('flo_list_test.txt', 'r').readlines()
+	length = len(img1_list)
 
-	# retrieve image and flow information
-	image_list.sort()
-	flow_list.sort()
-
-	for i in range(0, 308, 2):
+	for i in range(length):
 		# input images and ground truth flow
 		img_files = []
-		img_files.append(os.path.join(kitti_image, image_list[i]))
-		img_files.append(os.path.join(kitti_image, image_list[i+1]))
-		ground_truth_file = flow_list[i/2]
+		img_files.append(img1_list[i].strip())
+		img_files.append(img2_list[i].strip())
 
 		# sanity check
 		if os.path.exists(prediction_file):
@@ -78,23 +79,22 @@ def test_kitti():
 
 		#invoke FlowNet
 		FlowNet.run(this_dir, img_files, './model_simple')
-		print i 
-		print img_files[0] 
-		print img_files[1] 
-		print ground_truth_file
 
 		#evaluate result
-		epe = fl.evaluate_flow_file('noc/' + ground_truth_file, prediction_file)
+		flow = fl.read_flow(prediction_file)
+		gt = kittitool.flow_read(flow_list[i].strip())
+		epe = fl.evaluate_flow(gt, flow)
 		sum_error += epe
 
 		# write to result file
-		result.write(str(i) + ':\n' + img_files[0] +'\n' + img_files[1] + '\n' + ground_truth_file + '\n')
+		result.write(str(i) + ':\n' + img_files[0] +'\n' + img_files[1] + '\n' + flow_list[i].strip() + '\n')
 		result.write('Average end point error: ' + str(epe) + '\n')
 
 
 	result.write('Total average point error: ' + str(sum_error) + '\n')
 	print 'sum of average end point error: ', sum_error
 	result.close()
+
 
 def test_rain():
 	rain_image_path = 'haze_rain'
@@ -131,6 +131,7 @@ def test_rain():
 	print 'sum of average end point error: ', sum_error
 	result.close()
 
+
 def test_flownet():
 	sum_error = 0
 	sum_px_error = 0
@@ -138,10 +139,10 @@ def test_flownet():
 	prediction_file = 'flownets-pred-0000000.flo'
 	img1_list = open('img1_list_test.txt', 'r').readlines()
 	img2_list = open('img2_list_test.txt', 'r').readlines()
-	flow_list = open('flow_list_test.txt', 'r').readlines()
+	flow_list = open('flo_list_test.txt', 'r').readlines()
 	length = len(img1_list)
 	
-	for i in range(600):
+	for i in range(length):
 		img_files = []
 		img_files.append(img1_list[i].strip())
 		img_files.append(img2_list[i].strip())
@@ -159,11 +160,26 @@ def test_flownet():
 
 	print 'Average Image EPE error: ', sum_error/length
 	print 'Average Pixel EPE error: ', sum_px_error/length
-	result.write('\n')
 	result.write('Average Image EPE error: ' + str(sum_error / length))
+	result.write('\n')
 	result.write('Average Pixel EPE error: ' + str(sum_px_error / length))
 	result.close()
 
 
 if __name__ == '__main__':
-	test_flownet()
+	if len(sys.argv) == 1:
+		test_flownet()
+	elif len(sys.argv) == 2:
+		if sys.argv[1] == 'KITTI':
+			test_kitti()
+		elif sys.argv[1] == 'Middlebury':
+			test_middlebury()
+		elif sys.argv[1] == 'Sintel':
+			test.sintel()
+		else:
+			raise error("argument not supported")
+	else:
+		test_flownet()
+
+
+
