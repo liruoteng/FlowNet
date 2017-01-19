@@ -309,7 +309,7 @@ message ParamSpec {
 // NOTE
 // Update the next available ID when you add a new LayerParameter field.
 //
-// LayerParameter next available layer-specific ID: 143 (last added: scale_param)
+// LayerParameter next available layer-specific ID: 144 (last added: reform_param)
 message LayerParameter {
   optional string name = 1; // the layer name
   optional string type = 2; // the layer type
@@ -403,6 +403,7 @@ message LayerParameter {
   optional BiasParameter bias_param = 141;
   optional ScaleParameter scale_param = 142;
   optional WriterParameter writer_param = 3002;
+  optional ReformParameter reform_param = 143;
 }
 
 // Message that stores parameters used to apply transformation
@@ -671,6 +672,11 @@ message CropParameter {
   // axis).
   optional int32 axis = 1 [default = 2];
   repeated uint32 offset = 2;
+}
+
+message ReformParameter {
+  optional BlobShape shape = 1;
+  
 }
 
 message DataParameter {
