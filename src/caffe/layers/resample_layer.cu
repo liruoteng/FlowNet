@@ -6,9 +6,6 @@
 #include "caffe/vision_layers.hpp"
 #include "caffe/util/math_functions.hpp"
 
-#include <opencv2/opencv.hpp>
-#include <opencv2/gpu/gpu.hpp>
-
 namespace caffe {
 
 static __device__ __forceinline__ float bicubicCoeff(float x_)
