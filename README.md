@@ -1,3 +1,10 @@
+### 10th April 2017 update
+You may find the official caffemodel file at: https://lmb.informatik.uni-freiburg.de/resources/software.php
+
+This repo has been tested under Ubuntu 14.04, CUDA 8 on NVIDIA GTX1080. 
+
+##
+
 # == Caffe with FlowNet ==
 # Release: 1.0
 # Date: 08.02.2016
