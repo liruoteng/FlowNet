@@ -3,6 +3,8 @@ You may find the official caffemodel file at: https://lmb.informatik.uni-freibur
 
 This repo has been tested under Ubuntu 14.04, CUDA 8 on NVIDIA GTX1080. 
 
+For those who want to know how to read/write/visualize flow file '.flo', please refer another repo of [Optical Flow Toolkit](https://github.com/liruoteng/OpticalFlowToolkit)
+
 ##
 
 # == Caffe with FlowNet ==
